@@ -6,14 +6,14 @@ package com.gaurav.model;
  * This creates the response body for the JSON object and returns the translation of the given key
  */
 public class AjaxResponseBody {
-    private Object translation;
+    private Label translation;
     //String msg;
 
-    public Object getTranslation() {
+    public Label getTranslation() {
         return translation;
     }
 
-    public void setTranslation(Object translation) {
+    public void setTranslation(Label translation) {
         this.translation = translation;
     }
 }

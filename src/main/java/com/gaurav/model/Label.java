@@ -7,11 +7,11 @@ package com.gaurav.model;
  */
 public class Label {
     private String key;
-    private String label;
+    private Object label;
 
 
 
-    public Label(String key, String label) {
+    public Label(String key, Object label) {
         this.key = key;
         this.label = label;
 
@@ -25,11 +25,11 @@ public class Label {
         this.key = key;
     }
 
-    public String getLabel() {
+    public Object getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
+    public void setLabel(Object label) {
         this.label = label;
     }
 

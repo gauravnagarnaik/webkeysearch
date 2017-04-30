@@ -1,6 +1,7 @@
 package com.gaurav.controller;
 
 import com.gaurav.model.AjaxResponseBody;
+import com.gaurav.model.Label;
 import com.gaurav.model.SearchCriteria;
 import com.gaurav.services.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class SearchController {
 
         }
 
-        Object label = labelService.findTranslationFromKey(search.getLabel());
+        Label label = labelService.findTranslationFromKey(search.getLabel());
 
         translation.setTranslation(label);
         if(label == null) {
@@ -50,25 +51,4 @@ public class SearchController {
         return ResponseEntity.ok(translation);
     }
 
-    @PostMapping("/api/revSearch")
-    public ResponseEntity<?> getReverseSearchResultViaAjax(
-            @Valid @RequestBody SearchCriteria reverseSearch, Errors errors){
-
-
-        AjaxResponseBody translation = new AjaxResponseBody();
-
-        if(errors.hasErrors()){
-
-            return ResponseEntity.badRequest().body(translation);
-
-        }
-
-        Object label = labelService.findTranslationFromKey(reverseSearch.getLabel());
-
-        translation.setTranslation(label);
-        if(label == null) {
-            return null;
-        }
-        return ResponseEntity.ok(translation);
-    }
 }

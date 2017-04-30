@@ -30,7 +30,7 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            json = "<h4 align=\"center\"><pre>" + JSON.stringify(data.translation) + "</pre></h4>";
+            var json = "<h4 align=\"center\"><pre>" + JSON.stringify(data.translation.label) + "</pre></h4>";
             $('#feedback').html(json);
 
 

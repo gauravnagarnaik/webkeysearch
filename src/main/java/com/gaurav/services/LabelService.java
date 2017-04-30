@@ -8,7 +8,6 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,32 +18,27 @@ import java.util.Map;
 
 @Service
 public class LabelService {
-    private List<Label> labels;
+    private Label label;
     private Map<String, Object> translationMap = null;
 
 
-    public Object findTranslationFromKey(String key){
-        Object result = null;
+    public Label findTranslationFromKey(String key){
+        Label result = null;
         if(translationMap == null || key == null) {
             return result;
         }
 
         String[] parts = key.split("\\.");
-        if(parts.length == 0){
+        if(parts.length == 0 && translationMap.containsKey(key)){
             Object obj = translationMap.get(key);
-            if(obj instanceof String){
-                result = obj;
-            }
-            return result;
+            this.label = new Label(key, obj);
+            return this.label;
         }
         if(parts.length == 1){
             if(translationMap.containsKey(parts[0])) {
                 Object obj = translationMap.get(parts[0]);
-                if(obj instanceof String){
-                    result = obj;
-                } else if(obj instanceof Map){
-                    return obj;
-                }
+                this.label = new Label(key, obj);
+                result = this.label;
             }
         } else{
             if(!translationMap.containsKey(parts[0])){
@@ -56,7 +50,7 @@ public class LabelService {
         return result;
     }
 
-    private Object findNode(Map<String, Object> map, String[] parts, int i) {
+    private Label findNode(Map<String, Object> map, String[] parts, int i) {
 
         if(i == parts.length){
             return null;
@@ -64,10 +58,10 @@ public class LabelService {
 
         Object obj = map.get(parts[i]);
         if (obj instanceof String) {
-            return obj;
+            return new Label(parts[i], obj);
         } else if (obj instanceof Map) {
             if(i == parts.length - 1){
-                return obj;
+                return new Label(parts[i], obj);
             }
             return findNode((Map<String, Object>) obj, parts, ++i);
         } else {
