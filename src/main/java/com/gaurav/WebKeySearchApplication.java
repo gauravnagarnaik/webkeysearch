@@ -12,10 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WebKeySearchApplication {
     public static void main(String[] args) {
-
-
-        //System.out.println(translationMap);
-
         SpringApplication.run(WebKeySearchApplication.class, args);
     }
 

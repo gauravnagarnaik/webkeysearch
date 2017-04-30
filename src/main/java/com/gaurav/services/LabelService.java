@@ -75,7 +75,6 @@ public class LabelService {
         }
     }
 
-
     @PostConstruct
     private void initData(){
 
@@ -86,7 +85,6 @@ public class LabelService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 

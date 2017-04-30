@@ -30,11 +30,11 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            json = "<pre><h4 align=\"center\">" + JSON.stringify(data.translation) + "</h4></pre>";
+            json = "<h4 align=\"center\"><pre>" + JSON.stringify(data.translation) + "</pre></h4>";
             $('#feedback').html(json);
 
 
-            //console.log("SUCCESS : ", data);
+            console.log("SUCCESS : ", data);
             $("#btn-search").prop("disabled", false);
             $("#btn-reverse-search").prop("disabled", false);
 

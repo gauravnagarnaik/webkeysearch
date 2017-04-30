@@ -16,12 +16,4 @@ public class AjaxResponseBody {
     public void setTranslation(Object translation) {
         this.translation = translation;
     }
-
-   /* public void setMsg(String msg){
-        this.msg = msg;
-    }
-
-    public String getMsg(){
-        return this.msg;
-    }*/
 }
