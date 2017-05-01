@@ -28,15 +28,16 @@ public class LabelService {
 
     /**
      * function to find the label or translation of given key from the translationMap
-     * @param key
+     * @param key String
      * @return Label object
      */
     public Label findTranslationFromKey(String key){
-        Label result = null;
+
         if(translationMap == null || key == null) {
-            return result;
+            return null;
         }
 
+        Label result = null;
         //Split the requested key and find each component of the key query
 
         String[] parts = key.split("\\.");
@@ -61,9 +62,9 @@ public class LabelService {
 
     /**
      * function to find node in case of nested JSON objects
-     * @param map
-     * @param parts
-     * @param i
+     * @param map Map
+     * @param parts String[]
+     * @param i int
      * @return Label object
      */
     private Label findNode(Map<String, Object> map, String[] parts, int i) {
@@ -77,7 +78,10 @@ public class LabelService {
          */
         Object obj = map.get(parts[i]);
         if (obj instanceof String) {
-            return new Label(parts[i], obj);
+            if(i == parts.length - 1){
+                return new Label(parts[i], obj);
+            }
+            return null;
         } else if (obj instanceof Map) {
             if(i == parts.length - 1){
                 return null;
