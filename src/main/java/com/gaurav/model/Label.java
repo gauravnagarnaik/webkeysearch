@@ -3,7 +3,6 @@ package com.gaurav.model;
 /**
  * Created by Gaurav on 4/29/2017.
  * Model of the Label to initiate data
- * Not used currently
  */
 public class Label {
     private String key;

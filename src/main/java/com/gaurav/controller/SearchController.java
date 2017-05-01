@@ -21,7 +21,6 @@ import javax.validation.Valid;
 
 @RestController
 public class SearchController {
-
     private LabelService labelService;
 
     @Autowired
@@ -29,6 +28,13 @@ public class SearchController {
         this.labelService = labelService;
     }
 
+
+    /**
+     * function to control flow between AjaxResponseBody and LabelService
+     * @param search
+     * @param errors
+     * @return
+     */
     @PostMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(
             @Valid @RequestBody SearchCriteria search, Errors errors){
@@ -36,11 +42,18 @@ public class SearchController {
 
         AjaxResponseBody translation = new AjaxResponseBody();
 
+        /*
+         * if errors return bad request
+         */
         if(errors.hasErrors()){
 
             return ResponseEntity.badRequest().body(translation);
 
         }
+
+        /*
+         * If no errors, search for the translation of given key
+         */
 
         Label label = labelService.findTranslationFromKey(search.getLabel());
 

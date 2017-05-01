@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
     private final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+    /**
+     * function to index
+     * @return
+     */
     @GetMapping("/")
     public String index() {
         return "ajax";
