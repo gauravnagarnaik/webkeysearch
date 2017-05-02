@@ -15,7 +15,7 @@ public class IndexController {
 
     /**
      * function to index
-     * @return
+     * @return String
      */
     @GetMapping("/")
     public String index() {

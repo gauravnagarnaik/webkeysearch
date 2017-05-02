@@ -1,35 +1,43 @@
 package com.gaurav.model;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Gaurav on 4/29/2017.
  * Model of the Label to initiate data
  */
 public class Label {
-    private String key;
-    private Object label;
 
+    /**
+     * Bi-Directional Data Structure
+     */
+    private Map<String, String> keyToLabelMap;
+    private Map<String, List<String>> labelToKeyMap;
 
-
-    public Label(String key, Object label) {
-        this.key = key;
-        this.label = label;
-
+    /**
+     * Constructor
+     */
+    public Label(){
+        keyToLabelMap = new HashMap<>();
+        labelToKeyMap = new HashMap<>();
     }
 
-    public String getKey() {
-        return key;
+
+    public Map<String, String> getKeyToLabelMap() {
+        return keyToLabelMap;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setKeyToLabelMap(Map<String, String> keyToLabelMap) {
+        this.keyToLabelMap = keyToLabelMap;
     }
 
-    public Object getLabel() {
-        return label;
+    public Map<String, List<String>> getLabelToKeyMap() {
+        return labelToKeyMap;
     }
 
-    public void setLabel(Object label) {
-        this.label = label;
+    public void setLabelToKeyMap(Map<String, List<String>> labelToKeyMap) {
+        this.labelToKeyMap = labelToKeyMap;
     }
-
 }

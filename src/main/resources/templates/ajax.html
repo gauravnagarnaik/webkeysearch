@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Key Translation Web Service</title>
@@ -27,19 +27,20 @@
 
 <body>
     <!-- Not the best way to add space, but the rendering has some issues with CSS -->
-    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br />
     <h1 align="center"><b>Lost in Translation</b></h1>
-    <h3 align="center">Enter a key to find its label</h3>
+    <h3 align="center">Enter a key to find its label <br />
+                       or enter a label to reverse look up the key in dot-notation</h3>
     <form id="search-form">
         <p align="center">
-        <input type="text" name="search" placeholder="Search for translation... Press enter to search" id="label" align="center"/><br /><br />
-            <!-- <button type="submit" style="height:50px;width:200px" id="btn-search"><h4>Search</h4></button>
-             <button type="submit" style="height:50px;width:200px" id="btn-reverse-search"><h4>Reverse Look Up</h4></button>-->
+            <input type="text" name="search" placeholder="Search for translation... Press enter to search" id="label" align="center"/><br /><br />
+            <input type="submit" name="submit" style="height:36px;width:180px" id="btn-search" align="center" value="Search"/>
+            <input type="submit" name="submit" style="height:36px;width:180px" id="btn-reverse-search" value="Reverse LookUp"/>
         </p>
     </form>
 
 
-    <div id="feedback" style="font-size:19px">
+    <div id="feedback" style="font-size:27px">
     </div>
 
 

@@ -3,16 +3,16 @@ package com.gaurav.model;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * Created by Gaurav on 4/29/2017.
- * The Criteria for the search and sets the key to be searched
+ * Created by Gaurav on 5/1/2017.
+ * Search crieria for reverse lookUp
  */
-public class SearchCriteria {
+public class ReverseSearchCriteria {
 
-    @NotBlank(message = "Please Enter key to search!")
+    @NotBlank(message = "Please Enter label to search!")
     private String label;
 
     /**
-     * get label for search
+     * get label for reverse lookUp
      * @return String
      */
     public String getLabel() {
@@ -20,10 +20,11 @@ public class SearchCriteria {
     }
 
     /**
-     * Set label for search
+     * set label for reverse lookUp
      * @param label String
      */
     public void setLabel(String label) {
         this.label = label;
     }
+
 }
