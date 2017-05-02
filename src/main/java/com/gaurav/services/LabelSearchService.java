@@ -12,7 +12,8 @@ import java.util.*;
 /**
  * Created by Gaurav on 4/29/2017.
  *
- * Inits the data from the translation.json file in a map and finds the label associated with the key
+ * Initializes the data from the translation.json file in a map, which further processed to a bi-directional data structure
+ * Also, find key and reverse look Up functions here
  */
 
 
